@@ -19,3 +19,6 @@ npm-debug.log*
 # Local build output
 dist/
 .cache/
+
+.vercel
+.env*
