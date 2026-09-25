@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Unit Converter Express | Fast &amp; Accurate Unit Conversion</title>
+  <meta name="description" content="A fast, accurate and responsive unit converter for length, temperature, area, volume, weight, engineering and scientific units.">
+  <meta name="author" content="Unit Converter Express">
+  <meta name="theme-color" content="#84A59D">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Unit Converter Express">
+  <meta property="og:title" content="Unit Converter Express | Fast &amp; Accurate Unit Conversion">
+  <meta property="og:description" content="A fast, accurate and responsive unit converter for length, temperature, area, volume, weight, engineering and scientific units.">
+  <meta property="og:image" content="assets/icon-512.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Unit Converter Express | Fast &amp; Accurate Unit Conversion">
+  <meta name="twitter:description" content="A fast, accurate and responsive unit converter for length, temperature, area, volume, weight, engineering and scientific units.">
+  <meta name="twitter:image" content="assets/icon-512.png">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#converter">Skip to the converter</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img" focusable="false">
+            <rect x="1.5" y="1.5" width="29" height="29" rx="9"></rect>
+            <path d="M9 12.5h11M16.5 9l3.5 3.5-3.5 3.5"></path>
+            <path d="M23 19.5H12M15.5 16 12 19.5l3.5 3.5"></path>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">Unit Converter Express</span>
+          <span class="brand-tagline">Fast, accurate and easy conversions</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#home" data-nav="home">Home</a></li>
+          <li><a href="#converter" data-nav="converter">Converter</a></li>
+          <li><a href="#history" data-nav="history">History</a></li>
+          <li><a href="#favorites" data-nav="favorites">Favorites</a></li>
+          <li><a href="#about" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HOME / HERO ============ -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">23 categories &middot; 150+ units &middot; zero dependencies</p>
+        <h1 id="hero-title">Unit Converter Express</h1>
+        <p class="hero-subtitle">
+          Fast, accurate and easy unit conversions for everyday, scientific and engineering calculations.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#converter">Start converting</a>
+          <a class="btn btn-ghost" href="#search-section">Find a unit</a>
+        </div>
+        <ul class="hero-stats" aria-label="Application highlights">
+          <li><strong>23</strong><span>Categories</span></li>
+          <li><strong>150+</strong><span>Units</span></li>
+          <li><strong>2</strong><span>Stored lists</span></li>
+          <li><strong>0</strong><span>Network calls</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONVERTER ============ -->
+    <section class="section" id="converter" aria-labelledby="converter-heading">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="converter-heading">Converter</h2>
+          <p>Pick a category, choose your units and the result updates as you type.</p>
+        </div>
+
+        <div class="converter-layout">
+          <!-- Sidebar / category navigation -->
+          <aside class="sidebar card" aria-labelledby="categories-heading">
+            <div class="sidebar-head">
+              <h3 id="categories-heading">Categories</h3>
+            </div>
+            <div class="category-nav" id="category-nav" role="group" aria-label="Conversion categories"></div>
+          </aside>
+
+          <!-- Main converter column -->
+          <div class="converter-column">
+            <div class="card converter-card" id="converter-card">
+              <div class="card-head">
+                <h3 class="card-title">Unit Converter</h3>
+                <button class="icon-btn" id="favorite-toggle" type="button" aria-pressed="false"
+                        aria-label="Save this conversion to favorites" title="Save to favorites">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="ico">
+                    <path d="m12 3.6 2.6 5.3 5.8.85-4.2 4.1 1 5.75L12 16.9l-5.2 2.7 1-5.75-4.2-4.1 5.8-.85z"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="field">
+                <label for="category-select">Category</label>
+                <div class="select-wrap">
+                  <select id="category-select" class="select"></select>
+                </div>
+              </div>
+
+              <div class="field" id="dimension-field" hidden>
+                <label for="dimension-select">Type</label>
+                <div class="select-wrap">
+                  <select id="dimension-select" class="select"></select>
+                </div>
+              </div>
+
+              <div class="conversion-grid">
+                <div class="field converter-field">
+                  <label for="from-value">From</label>
+                  <input id="from-value" class="value-input" type="text" inputmode="decimal"
+                         autocomplete="off" spellcheck="false" placeholder="Enter a value"
+                         aria-describedby="form-message" value="100">
+                  <div class="select-wrap">
+                    <select id="from-unit" class="select" aria-label="Convert from unit"></select>
+                  </div>
+                </div>
+
+                <div class="swap-col">
+                  <button class="swap-btn" id="swap-btn" type="button"
+                          aria-label="Swap the from and to units" title="Swap (Ctrl + Shift + S)">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="ico">
+                      <path d="M7.5 4v13M4.5 14l3 3 3-3"></path>
+                      <path d="M16.5 20V7M13.5 10l3-3 3 3"></path>
+                    </svg>
+                  </button>
+                  <span class="swap-label" aria-hidden="true">Swap</span>
+                </div>
+
+                <div class="field converter-field">
+                  <label for="result-value">To</label>
+                  <output class="result-value" id="result-value" for="from-value from-unit to-unit">328.084</output>
+                  <div class="select-wrap">
+                    <select id="to-unit" class="select" aria-label="Convert to unit"></select>
+                  </div>
+                </div>
+              </div>
+
+              <p class="equation" id="equation" aria-live="polite">100 Meter = 328.084 Foot</p>
+              <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+
+              <div class="card-actions">
+                <button class="btn btn-primary" id="convert-btn" type="button">Convert</button>
+                <button class="btn btn-secondary" id="swap-btn-2" type="button">Swap</button>
+                <button class="btn btn-ghost" id="clear-btn" type="button">Clear</button>
+                <button class="btn btn-ghost" id="copy-btn" type="button">Copy Result</button>
+              </div>
+
+              <div class="precision-row">
+                <label for="precision-select">Precision</label>
+                <div class="select-wrap select-wrap-sm">
+                  <select id="precision-select" class="select"></select>
+                </div>
+                <span class="precision-note">decimal places</span>
+              </div>
+            </div>
+
+            <!-- Popular conversions -->
+            <div class="card" id="popular-section">
+              <div class="card-head">
+                <h3 class="card-title">Popular Conversions</h3>
+              </div>
+              <ul class="chip-list" id="popular-list"></ul>
+            </div>
+
+            <!-- Unit search -->
+            <div class="card" id="search-section">
+              <div class="card-head">
+                <h3 class="card-title">Find the Units to Convert</h3>
+              </div>
+              <div class="search-box">
+                <svg class="search-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="11" cy="11" r="6.5"></circle>
+                  <path d="m16 16 4.5 4.5"></path>
+                </svg>
+                <label class="visually-hidden" for="unit-search">Search units</label>
+                <input id="unit-search" class="search-input" type="search" placeholder="Search units..."
+                       autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false"
+                       aria-controls="search-results" aria-autocomplete="list" aria-haspopup="listbox">
+                <button class="search-clear" id="search-clear" type="button" hidden>
+                  <span class="visually-hidden">Clear search</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+                </button>
+              </div>
+              <p class="hint">Try &ldquo;kg&rdquo;, &ldquo;km&rdquo;, &ldquo;mile&rdquo;, &ldquo;fahrenheit&rdquo;, &ldquo;psi&rdquo; or &ldquo;&deg;C&rdquo;.</p>
+              <ul class="search-results" id="search-results" role="listbox" aria-label="Matching units"></ul>
+              <p class="empty-note" id="search-empty" hidden>No matching units found.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HISTORY ============ -->
+    <section class="section section-alt" id="history" aria-labelledby="history-heading">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="history-heading">History</h2>
+          <p>Your last 20 conversions are stored locally in this browser. Select one to load it.</p>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h3 class="card-title">Recent conversions</h3>
+            <button class="btn btn-ghost btn-sm" id="clear-history" type="button">Clear history</button>
+          </div>
+          <ul class="record-list" id="history-list"></ul>
+          <p class="empty-note" id="history-empty">No conversions yet. Convert something to get started.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAVORITES ============ -->
+    <section class="section" id="favorites" aria-labelledby="favorites-heading">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="favorites-heading">Favorites</h2>
+          <p>Save the unit pairs you use most often, then reload them in one click.</p>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h3 class="card-title">Saved conversions</h3>
+            <button class="btn btn-ghost btn-sm" id="clear-favorites" type="button">Clear favorites</button>
+          </div>
+          <ul class="record-list" id="favorites-list"></ul>
+          <p class="empty-note" id="favorites-empty">No favorites yet. Press the star in the converter to save a unit pair.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section section-alt" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="about-heading">About</h2>
+        </div>
+        <div class="about-grid">
+          <div class="card about-card">
+            <p class="about-lead">
+              Unit Converter Express is a fast browser-based unit conversion tool designed for students,
+              engineers, developers and everyday calculations.
+            </p>
+            <p>
+              Every calculation runs locally inside your browser using a centralised conversion registry.
+              Nothing is uploaded, nothing is tracked, and the application keeps working offline once it
+              has loaded.
+            </p>
+          </div>
+          <div class="card about-card">
+            <h3 class="card-title">Built with</h3>
+            <ul class="tick-list">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript (ES6+)</li>
+            </ul>
+            <p class="hint">No backend required. No database. No external frameworks or libraries.</p>
+            <h3 class="card-title card-title-gap">Shortcuts</h3>
+            <ul class="kbd-list">
+              <li><kbd>Enter</kbd><span>Convert</span></li>
+              <li><kbd>Esc</kbd><span>Clear</span></li>
+              <li><kbd>Ctrl</kbd>/<kbd>Shift</kbd>+<kbd>S</kbd><span>Swap</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Unit Converter Express</strong> &mdash; built with HTML5, CSS3 and vanilla JavaScript.</p>
+      <p class="footer-note">All data stays on your device. Works offline after the first load.</p>
+      <a class="footer-top" href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript>
+    <div class="noscript">Unit Converter Express needs JavaScript enabled to perform conversions.</div>
+  </noscript>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
